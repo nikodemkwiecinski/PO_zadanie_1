@@ -41,31 +41,34 @@
             this.label1.Size = new System.Drawing.Size(34, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cena";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Toshiba",
+            "Lenovo",
+            "Dell"});
             this.comboBox1.Location = new System.Drawing.Point(321, 100);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Items.Add("Toshiba");
-            this.comboBox1.Items.Add("Lenovo");
-            this.comboBox1.Items.Add("Dell");
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "22 cale",
+            "24 cale",
+            "26 cali",
+            "28 cali",
+            "30 cali"});
             this.comboBox2.Location = new System.Drawing.Point(321, 186);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Items.Add("22 cale");
-            this.comboBox2.Items.Add("24 cale");
-            this.comboBox2.Items.Add("26 cali");
-            this.comboBox2.Items.Add("28 cali");
-            this.comboBox2.Items.Add("30 cali");
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 2;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // Form3
             // 
@@ -77,6 +80,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.FormClosed += Form3_Closed;
             this.ResumeLayout(false);
             this.PerformLayout();
 

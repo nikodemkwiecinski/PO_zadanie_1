@@ -120,6 +120,7 @@
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "obudowa";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -130,6 +131,7 @@
             this.checkBox4.TabIndex = 7;
             this.checkBox4.Text = "karta graficzna";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox5
             // 
@@ -140,6 +142,7 @@
             this.checkBox5.TabIndex = 8;
             this.checkBox5.Text = "procesor";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // label1
             // 
@@ -165,6 +168,7 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
+            this.FormClosed += Form2_Closed;
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
