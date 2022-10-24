@@ -23,18 +23,18 @@ namespace zadanie_3
         {
             Book.title = title;
             Book.author = author;
-            Book.id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+            Book.id = (int)(DateTimeOffset.Now.ToUnixTimeMilliseconds() - new DateTimeOffset(1970,1,1,1,1,1,new TimeSpan()).ToUnixTimeMilliseconds());
             this.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            title = textBox1.Text;
+            author = textBox1.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            author = textBox1.Text;
+            title = textBox2.Text;
         }
     }
 }
