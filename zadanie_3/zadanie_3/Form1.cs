@@ -32,7 +32,11 @@ namespace zadanie_3
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
+            dataGridView1.Rows.Clear();
+            File.ReadLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\import3.csv").Skip(1)
+                .Select(x => x.Split(','))
+                .ToList()
+                .ForEach(line => dataGridView1.Rows.Add(line.Where(e => !string.IsNullOrEmpty(e)).ToArray()));
         }
     }
 }
