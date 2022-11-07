@@ -43,7 +43,7 @@ namespace Zadanie_4
                     {
                         if (currColor.R < 50 && currColor.G > 50 && currColor.B < 50)
                         {
-                            blackBitmap.SetPixel(i, j, newColor);
+                            blackBitmap.SetPixel(i, j, Color.FromArgb(currColor.A, currColor.R, currColor.G, currColor.B));
                         }
                         else
                         {
