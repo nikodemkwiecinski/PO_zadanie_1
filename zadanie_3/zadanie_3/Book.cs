@@ -15,7 +15,7 @@ namespace zadanie_3
         public static string year = "";
         public static string status = "";
         public static int id;
-        public static List<HelperBook> list = new List<HelperBook>();
+        public static HelperBook[] list = {};
 
         public static void clearData()
         {

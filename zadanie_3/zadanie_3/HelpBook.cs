@@ -16,7 +16,7 @@ namespace zadanie_3
         public string status = "";
         public int id;
 
-        public HelperBook(int id, string title,string author, string publisher, string city, string year, string status)
+        public HelperBook(int id, string title, string author, string publisher, string city, string year, string status)
         {
             this.id = id;
             this.title = title;

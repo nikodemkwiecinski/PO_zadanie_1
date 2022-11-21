@@ -1,5 +1,7 @@
+using System.CodeDom.Compiler;
 using System.Data;
 using System.Reflection;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace zadanie_3
@@ -40,14 +42,11 @@ namespace zadanie_3
         {
            using(var stringwriter = new System.IO.StringWriter())
             {
-                var serializer = new XmlSerializer(typeof(HelperBook));
+                var serializer = new XmlSerializer(typeof(HelperBook[]));
                 string result = "";
-                for(int i = 0; i < Book.list.Count; i++)
-                {
-                    serializer.Serialize(stringwriter, Book.list[i]);
-                    result += stringwriter.ToString();
-                }
-                string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\zadanie3.xml";
+                serializer.Serialize(stringwriter, Book.list);
+                result = stringwriter.ToString();
+                string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\test.xml";
                 File.WriteAllText(path, result);
             }
         }
