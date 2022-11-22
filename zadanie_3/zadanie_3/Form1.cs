@@ -1,8 +1,13 @@
-using System.CodeDom.Compiler;
+using System.IO;
 using System.Data;
-using System.Reflection;
-using System.Xml.Linq;
-using System.Xml.Serialization;
+using System.Windows.Forms;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace zadanie_3
 {
@@ -38,22 +43,47 @@ namespace zadanie_3
             DataTable table = new DataTable();
         }
 
+        private DataTable GetDataTableFromDGV(DataGridView dgv)
+        {
+            var dt = new DataTable();
+
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                if (column.Visible)
+                {
+                    dt.Columns.Add(column.HeaderText);
+                }
+            }
+            
+
+            object[] cellValues = new object[dgv.Columns.Count];
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    cellValues[i] = row.Cells[i].Value;
+                }
+                dt.Rows.Add(cellValues);
+            }
+
+            return dt;
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-           using(var stringwriter = new System.IO.StringWriter())
-            {
-                var serializer = new XmlSerializer(typeof(HelperBook[]));
-                string result = "";
-                serializer.Serialize(stringwriter, Book.list);
-                result = stringwriter.ToString();
-                string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\test.xml";
-                File.WriteAllText(path, result);
-            }
+            DataTable dt = GetDataTableFromDGV(dataGridView1);
+            DataSet ds = new DataSet();
+            ds.Tables.Add(dt);
+            ds.WriteXml(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\test.xml");
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            DataSet ds = new DataSet();
+            ds.ReadXml(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\test.xml");
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = ds.Tables[0];
         }
     }
 }
