@@ -58,6 +58,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -73,18 +74,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(362, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.Size = new System.Drawing.Size(30, 15);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Imie";
+            this.label2.Text = "Autor";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(362, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Nazwisko";
+            this.label3.Text = "Tytuł";
             // 
             // Form2
             // 

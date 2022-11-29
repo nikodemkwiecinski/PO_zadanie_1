@@ -26,11 +26,12 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tytul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +81,9 @@
             // 
             this.Nazwisko.HeaderText = "Nazwisko";
             this.Nazwisko.Name = "Nazwisko";
+
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
             // 
             // dataGridView1
             // 
@@ -88,6 +92,7 @@
             this.Id,
             this.Tytul,
             this.Autor,
+            this.Status
            });
             this.dataGridView1.Location = new System.Drawing.Point(507, 36);
             this.dataGridView1.Name = "dataGridView1";
@@ -234,15 +239,25 @@
 
         }
 
+        public void addElementToGrid(object sender, EventArgs e)
+        {
+            for(int i=0;i<Helper.users.Length;i++)
+            {
+                this.dataGridView2.Rows.Add(Helper.users[i].userId, Helper.users[i].name, Helper.users[i].suername);
+            }
+            
+        }
+
         #endregion
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Tytul;
         private DataGridViewTextBoxColumn Autor;
+        private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn userId;
         private DataGridViewTextBoxColumn Imie;
         private DataGridViewTextBoxColumn Nazwisko;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        public DataGridView dataGridView1;
+        public DataGridView dataGridView2;
         private Button button1;
         private Button button2;
         private Button button3;

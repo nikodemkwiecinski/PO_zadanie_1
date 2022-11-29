@@ -16,5 +16,12 @@ namespace zadanie_7
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(this.textBox1.Text);
+            Helper.books = Helper.books.Where(elem => elem.id != id).ToArray();
+            this.Close();
+        }
     }
 }
