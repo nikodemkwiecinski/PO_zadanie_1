@@ -69,7 +69,7 @@
             // 
             // userId
             // 
-            this.userId.HeaderText = "User ID";
+            this.userId.HeaderText = "UserID";
             this.userId.Name = "userId";
             // 
             // Imie
@@ -237,15 +237,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
-        }
-
-        public void addElementToGrid(object sender, EventArgs e)
-        {
-            for(int i=0;i<Helper.users.Length;i++)
-            {
-                this.dataGridView2.Rows.Add(Helper.users[i].userId, Helper.users[i].name, Helper.users[i].suername);
-            }
-            
         }
 
         #endregion

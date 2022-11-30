@@ -22,8 +22,9 @@ namespace zadanie_7
         private void button1_Click(object sender, EventArgs e)
         {
             int id = Math.Abs((int)(DateTimeOffset.Now.ToUnixTimeMilliseconds() - new DateTimeOffset(1970, 1, 1, 1, 1, 1, new TimeSpan()).ToUnixTimeMilliseconds()));
-            _ = Helper.books.Append(new Book(id, this.textBox1.Text, this.textBox2.Text, "wolna"));
-            for (int i = 0; i < Helper.books.Length; i++)
+            Helper.books.Add(new Book(id, this.textBox1.Text, this.textBox2.Text, "wolna"));
+            form1.dataGridView1.Rows.Clear();
+            for (int i = 0; i < Helper.books.Count; i++)
             {
                 form1.dataGridView1.Rows.Add(Helper.books[i].id, Helper.books[i].title, Helper.books[i].author, Helper.books[i].status);
             }

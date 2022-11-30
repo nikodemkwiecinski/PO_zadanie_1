@@ -8,7 +8,7 @@ namespace zadanie_7
 {
     public static class Helper
     {
-        public static Book[] books = Array.Empty<Book>();
-        public static User[] users = Array.Empty<User>();
+        public static List<Book> books = new List<Book>();
+        public static List<User> users = new List<User>();
     }
 }

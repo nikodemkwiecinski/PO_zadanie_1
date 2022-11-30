@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table1>
+    <UserID>949403598</UserID>
+    <Imie>test2</Imie>
+    <Nazwisko>test2</Nazwisko>
+  </Table1>
+  <Table1 />
+</NewDataSet>
