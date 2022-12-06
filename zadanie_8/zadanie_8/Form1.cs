@@ -12,8 +12,11 @@ namespace zadanie_8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(type, size);
-            form2.Show();
+            if (type != "" && size != "")
+            {
+                Form2 form2 = new Form2(type, size);
+                form2.Show();
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

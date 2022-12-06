@@ -15,7 +15,10 @@ namespace zadanie_8
         int size = 0;
         string type = "";
         int index = 0;
+        int index2 = 0;
+        bool displayed = false;
         List<Button> buttons = new List<Button> ();
+        private System.Windows.Forms.Timer tmr;
 
         public Form2(string type, string size)
         {
@@ -23,17 +26,51 @@ namespace zadanie_8
             this.size = int.Parse(size.Substring(0,1));
             Random rnd = new Random();
             index = rnd.Next(0, this.size * this.size);
+            index2 = rnd.Next(0, this.size * this.size);
+            while(index == index2)
+            {
+                index2 = rnd.Next(0, this.size * this.size) - 1;
+            }
             InitializeComponent();
             this.Shown += createBoard;
+            tmr = new System.Windows.Forms.Timer();
+            tmr.Tick += delegate {
+                if (!this.displayed)
+                {
+                    Form3 form3 = new Form3("Przegrales");
+                    form3.Show();
+                    this.Close();
+                    tmr.Stop();
+                }
+            };
+            tmr.Interval = (int)TimeSpan.FromSeconds(3).TotalMilliseconds;
+            tmr.Start();
         }
 
         private void click(object sender, EventArgs e)
         {
             var currBtn = sender as Button;
-            if (currBtn != null) {
-                if (int.Parse(currBtn.Text.Substring(17) == index))
+            if (currBtn != null && currBtn.Text != "Puste" && currBtn.Text != "Krokodyl") {
+                if (int.Parse(currBtn.Text.Substring(17)) == index)
                 {
                     currBtn.Text = type;
+                    Form3 form3 = new Form3("Wygrales");
+                    form3.Show();
+                    displayed = true;
+                    this.Close();
+                }
+                else if(int.Parse(currBtn.Text.Substring(17)) == index2)
+                {
+                    currBtn.Text = "Krokodyl";
+                    Random rnd = new Random();
+                    int chance = rnd.Next(0, 2);
+                    if(chance == 0)
+                    {
+                        Form3 form3 = new Form3("Przegrales");
+                        form3.Show();
+                        displayed = true;
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -50,13 +87,14 @@ namespace zadanie_8
                 {
                     Button newBtn = new Button();
                     this.Controls.Add(newBtn);
-                    newBtn.Text = "Kliknij przycisk " + i + j;
-                    newBtn.Location = new Point(i * 60, j * 50);
-                    newBtn.Size = new Size(50, 50);
+                    newBtn.Text = "Kliknij przycisk " + ((i*size) + j);
+                    newBtn.Location = new Point(i * 100, j * 100);
+                    newBtn.Size = new Size(100, 100);
                     newBtn.Click += click;
                     buttons.Add(newBtn);
                 }
             }
+            this.ClientSize = new System.Drawing.Size(size*100, size * 100);
         }
     }
 }

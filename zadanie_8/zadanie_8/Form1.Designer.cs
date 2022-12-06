@@ -50,7 +50,7 @@
             "hipopotam",
             "zebra",
             "lew",
-            "krokodyl"});
+            "guziec"});
             this.comboBox1.Location = new System.Drawing.Point(53, 59);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
